@@ -1,0 +1,20 @@
+INTERPOL /interpol/search - Stress Test Summary
+================================================
+Total requests: 26
+Error rate: 100.00% (26/26)
+Min latency: 0.00 ms
+Max latency: 0.00 ms
+Average latency: 0.00 ms
+P90 latency: 0.00 ms
+P95 latency: 0.00 ms
+P99 latency: 0.00 ms
+
+Response Time Distribution
+--------------------------
+<500 ms      :       26 (100.00%)
+500-1000 ms  :        0 (0.00%)
+1000-1500 ms :        0 (0.00%)
+1500-2000 ms :        0 (0.00%)
+2000-2500 ms :        0 (0.00%)
+2500-3000 ms :        0 (0.00%)
+>3000 ms     :        0 (0.00%)
