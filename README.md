@@ -10,9 +10,13 @@ This suite stress-tests `POST /interpol/search` with a FIND-style terminal model
 ## Project Structure
 
 - `tests/interpolStressTest.js` - main test and scenarios
+- `tests/interpolSltdStressTest.js` - SLTD main test and scenarios
 - `data/nominals.js` - HIT dataset
+- `data/sltdDocuments.js` - SLTD HIT dataset
 - `lib/fakePerson.js` - fake person generator (NO HIT)
 - `lib/requestFactory.js` - 40/60 request mix
+- `lib/fakeSltdDocument.js` - SLTD fake document generator (NO HIT)
+- `lib/sltdRequestFactory.js` - SLTD 40/60 request mix
 - `logs/` - output folder for request/summary logs
 
 ## Run (basic)
@@ -29,9 +33,33 @@ Use raw console output to write per-request CSV lines to `/logs/interpol_test_re
 k6 run --log-format raw --console-output logs/interpol_test_results.csv tests/interpolStressTest.js
 ```
 
+## Run SLTD test
+
+Default SLTD endpoint:
+
+- `http://localhost:3000/api/interpol/sltd/search`
+
+Run:
+
+```bash
+k6 run tests/interpolSltdStressTest.js
+```
+
+Run with CSV logs:
+
+```bash
+k6 run --log-format raw --console-output logs/interpol_sltd_test_results.csv tests/interpolSltdStressTest.js
+```
+
+Run with explicit SLTD API URL:
+
+```bash
+API_URL="http://localhost:3000/api/interpol/sltd/search" k6 run tests/interpolSltdStressTest.js
+```
+
 ## Optional environment variables
 
-- `API_URL` (default: `http://localhost:3000/interpol/search`)
+- `API_URL` (script default: `/interpol/search` for `interpolStressTest.js`, `/api/interpol/sltd/search` for `interpolSltdStressTest.js`)
 - `AUTH_TOKEN` (Bearer token)
 - `ENABLE_DEBUG=true|false`
 
